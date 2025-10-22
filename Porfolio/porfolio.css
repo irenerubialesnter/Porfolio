@@ -1,0 +1,298 @@
+
+body {
+  /*margin: 0;*/ /*si quisiera eliminar el margen predetermiando del navegador(bordes blancos)*/
+  font-family: Arial, sans-serif; /*usa fuente Arial, si no estuviera disponible, usa la sans-serif*/
+  background-color: #f3daa4;
+  margin: 0;              /* remove default yellow/white borders */
+}
+
+
+#navbar { /*header que contiene un nav, actua como barra de navegación*/
+  position: sticky; /* con la propiedad de "sticky" consigo que la barra de navegación siempre se mantenga en el top de la página mientras la scroleo */
+  top: 0; /*para fijar este elemento en la parte superior de la pantalla*/
+  background-color: #333; /*fondo de la barra de navegación*/
+  padding: 10px 20px; /*Añado un poco de espacio para que no se vea muy estrecho*/
+  
+}
+
+#navbar nav {  /*función nav del header, con esto organizo los a con Flexbox */
+  display: flex;
+  justify-content: center;
+  gap: 20px; /*para separar/espaciar un poco los <a> elementos*/
+}
+
+.nav-link {
+  color: white; /*texto de los elementos de la barra de navegacion = blanco*/
+  text-decoration: none;/*esto sirve para quitar los subrayados de los enlaces*/
+  font-weight: bold; /*esto sirve para que los enlaces salgan en negrita*/
+}
+
+.nav-link:hover {
+  color: #ff9900; /*una vez posicionemos el raton sobre los enlaces, se pone de color :naranja*/
+}
+
+
+#welcome-section {
+  height: 100vh; /* igual a la altura de la ventana porque vh significa viewport*/
+  display: flex; /*Para centrar el contenido*/
+  flex-direction: column; /* coloca los hijos uno debajo del otro */
+  justify-content: center; /*alinea los hijos(h1 y p) (del contenedor de manera horizontal)*/
+  align-items: center; /*alinea elementos de manera vertical en el centro del contenedor*/
+  background-color: #bdb8a7b9; /*color de fondo del contenedor*/
+  text-align: center; /*centra el texto dentro del contenedor*/
+
+   /* degradado de arriba a abajo */
+  background: linear-gradient(to bottom, #9acbff, #fad0c4); /*para practicar con los degradados como en la formacion*/
+  gap: 20px;
+}
+
+#welcome-section h1 {
+  font-size: 3rem; 
+  /*rem = relativo a la raiz, esta medida quiere decir que, basandonos en la fuente del elemento raiz (tamaño de fuente html por defecto del navegador, suele ser 16px), conseguimos que el elemento con esa unidad de medida aumente proporcionalmente, ajustandose mejor el contenido y siendo esta opcion mas flexible y apropiada que utilizar un cambio absoluto como seria usar pixeles. Con esto, si el user hace zoom, o cambia de navegador, aumentara el tamaño de estos elemento de manera proporcional */
+}
+#nter-img {
+  max-height: 70px;/*la imagen del logo no superará los Xpx de alto*/
+}
+
+
+#projects {
+  padding: 50px 20px; /*sirve para separar entre sí los elementos de esta sección*/
+  text-align: center; /*centra los elementos de esta sección*/
+}
+
+.project-tile {
+  display: inline-block; /*esto sirve para que los elementos, en este caso "proyectos", se coloquen uno al lado del otro, se comportan omo si fueran bloques, botones*/
+  margin: 10px; /*deja 10px de espacio entre los proyectos*/
+  text-align: center;
+  background-color: white;
+  border: 1px solid #141414; /*para añadirle bordes grises a los elementos*/
+  border-radius: 10px; /*Para ahcer las equinas redondeadas*/
+  overflow: hidden; /*si algún elemento que incluyamos es muy grande, se esconde lo que sobresalga de ese contenedor*/
+}
+
+.project-tile img {
+  width: 300px; 
+  height: 200px;
+  display: block; /*para que la imagen ocupe todo el ancho disponible dentro del contenedor*/
+}
+
+.project-tile p {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+
+
+/* MEDIA QUERY para pantallas pequeñas */
+@media (max-width: 600px) {
+  #navbar nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .project-tile img {
+    width: 90%;
+    height: auto;
+  }
+}
+
+
+
+#form {
+  display: flex;
+  flex-direction: column; /*coloca los elementos uno debajo del otro*/
+  align-items: center;
+  gap: 10px;
+  max-width: 400px;
+  margin: 0 auto; /*centra el formulario en la pagina*/
+}
+
+#email {
+  padding: 10px;
+  width: 100%;
+}
+
+#submit {
+  padding: 10px 20px; /*para hacer mas grande el boton*/
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+  cursor: pointer; /*para que el raotn camvbie de forma cuandos e pase por encima del boton*/
+  border-radius: 5px;
+}
+
+#submit:hover {
+  background-color: rgba(0, 145, 255, 0.729);
+}
+section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+
+/* Make the whole tile linkable and position the hover symbol */
+.project-tile a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Smooth image transition */
+.project-tile img {
+  width: 300px;
+  height: 200px;
+  display: block;
+  transition: transform 300ms ease, filter 300ms ease;
+}
+
+/* Slight zoom and dim on hover */
+.project-tile:hover img,
+.project-tile a:focus img {
+  transform: scale(1.04);
+  filter: brightness(0.95);
+}
+
+/* Animated circular symbol that appears on hover (bottom-right) */
+.project-tile a::after {
+  content: "➜";
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  background: #f75d5d;
+  color: #fff;
+  padding: 8px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.18);
+  opacity: 0;
+  transform: translateY(8px) scale(0.9);
+  transition: opacity 220ms ease, transform 220ms ease;
+  pointer-events: none;
+}
+
+/* Show symbol on hover / focus for accessibility */
+.project-tile:hover a::after,
+.project-tile a:focus::after,
+.project-tile a:focus-visible::after {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Subtle title lift and color change */
+.project-tile p {
+  margin: 10px 0;
+  font-weight: bold;
+  transition: transform 220ms ease, color 220ms ease;
+}
+
+.project-tile:hover p,
+.project-tile a:focus p {
+  transform: translateY(-4px);
+  color: #f75d5d;
+}
+
+
+/* Footer contact block */
+#footer-contact {
+  width: 100%;
+  margin: 0;
+  padding: 30px 20px;
+  border-radius: 0;      /* remove rounded corners so it fills edges cleanly */
+  box-sizing: border-box;
+  background: #333;
+}
+
+#footer-contact h3 {
+  margin: 0 0 16px;
+  font-size: 1.4rem;
+  color: #ffffff; /* título en blanco */
+}
+
+#footer-contact p {
+  color: #ffffff; /* párrafo/copyright en blanco */
+}
+
+/* Contacts row */
+.contacts {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+/* Link base */
+.contact-link {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 10px;
+  color: #111;
+  background: #fff;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.06);
+  transform: translateY(0);
+  transition: transform 260ms ease, box-shadow 260ms ease, background-color 260ms ease;
+  will-change: transform;
+}
+
+/* Icon style */
+.contact-link .icon {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  color: #ff7a59; /* accent color */
+  transition: transform 320ms cubic-bezier(.2,.9,.3,1), color 260ms ease;
+}
+
+/* Label */
+.contact-link .label {
+  font-weight: 600;
+}
+
+/* Hover/focus effects: gentle lift + icon pop + glow */
+.contact-link:hover,
+.contact-link:focus,
+.contact-link:focus-visible {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 16px 30px rgba(0,0,0,0.12);
+  outline: none;
+}
+
+.contact-link:hover .icon,
+.contact-link:focus .icon {
+  transform: translateY(-2px) scale(1.12) rotate(-6deg);
+  color: #ff4a2a;
+}
+
+/* Subtle glowing pulse on hover for the whole link */
+@keyframes linkGlow {
+  0% { box-shadow: 0 6px 18px rgba(255,74,42,0); }
+  50% { box-shadow: 0 20px 40px rgba(255,74,42,0.08); }
+  100% { box-shadow: 0 6px 18px rgba(255,74,42,0); }
+}
+
+.contact-link:hover {
+  animation: linkGlow 1.2s ease-in-out both;
+}
+
+/* Responsive spacing */
+@media (max-width: 560px) {
+  .contacts { gap: 10px; }
+  .contact-link { padding: 8px 10px; }
+  .contact-link .label { font-size: 0.95rem; }
+}
+
+/* Footer note */
+.footer-note {
+  margin: 0;
+  color: #333;
+  font-size: 0.9rem;
+}
