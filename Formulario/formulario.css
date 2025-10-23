@@ -1,4 +1,3 @@
-/* ...existing code... */
 /* Fondo con imagen y capa semitransparente */
 .background-container {
   /*height: 100vh;*/ /* ocupa toda la altura de la pantalla */
@@ -7,9 +6,9 @@
   align-items: center;     /* centra verticalmente */
   background: 
     linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), /* capa semitransparente negra */
-    url('https://picsum.photos/1920/1080') no-repeat center center;
+    url('https://picsum.photos/1920/1080') no-repeat center center; /* imagen de fondo centrada */
   background-size: cover; /* ajusta la imagen al contenedor */
-  flex-direction: column;
+  flex-direction: column; /* organiza el contenido en columna */
 }
 
 body{
@@ -24,8 +23,8 @@ body{
 }
 
 .header-text h1 {
-  margin: 0 auto;
-  font-size: 50px;
+  margin: 0 auto; 
+  font-size: 50px; 
   line-height: 1.05; /* comprime un poco la altura de línea */
 }
 #title{
@@ -52,7 +51,7 @@ input, select, textarea {
   border-radius: 10px;
   width: 500px; /* ancho fijo del formulario */
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* organiza los elementos en columna */
   gap: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* sombra para dar efecto “flotante” */
   margin-bottom:20px;
@@ -87,13 +86,13 @@ input, select, textarea {
 }
 
 
-@media (min-width: 576px) {
+@media (min-width: 576px) { /* Pantallas pequeñas y mayores */
   .container {
     max-width: 540px;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) { /* Pantallas medianas y mayores */
   .container {
     max-width: 720px;
   }
@@ -104,13 +103,13 @@ input, select, textarea {
    Usamos flex para controlar la posición del input y del texto. */
 #survey-form label {
   display: flex;
-  flex-direction: row;    /* orden natural: input (si está primero) y texto */
+  flex-direction: row;    /* input (si está primero) y texto */
   align-items: center; 
   gap: 8px;               /* espacio entre input y texto */
   margin-bottom: 5px;
 }
 
-/* Asegura que los radios y checkboxes queden a la izquierda del texto.
+/* Puntos y checkbox quedan a la izquierda del texto.
    order: -1 mueve el input antes del texto incluso si el nodo de texto aparece antes. */
 #survey-form label input[type="radio"],
 #survey-form label input[type="checkbox"] {
@@ -122,7 +121,7 @@ input, select, textarea {
   accent-color: purple; /* color cuando está seleccionado */
 }
 
-/* Si necesita dejar los inputs de texto (fuera de labels) ocupando 100% */
+/* Si se necesita dejar los inputs de texto (fuera de labels) ocupando 100% */
 #survey-form > input[type="text"],
 #survey-form > input[type="email"],
 #survey-form > input[type="number"],
@@ -131,7 +130,7 @@ input, select, textarea {
   width: 100%;
 }
 
-textarea{
+textarea{ /* Estilo específico para textarea */
   font-family: 'Poppins', sans-serif;
   font-size: medium;
 }

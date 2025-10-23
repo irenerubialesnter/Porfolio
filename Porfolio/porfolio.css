@@ -1,28 +1,30 @@
 /* Variables y reset */
-:root{
-  --bg: linear-gradient(180deg,#f3daa4 0%, #d14e1a98 100%);;
-  --nav-bg:#333;
-  --accent:#f75d5d;
-  --muted:#e6e6e6;
-  --card-bg:#fff;
-  --text:#111;
+:root{  /* selector del elemento raiz html dentro defino las variables css con formato --nombre*/
+  --bg: linear-gradient(180deg,#f3daa4 0%, #d14e1a98 100%); /*"background"*/
+  --nav-bg:#333;   /*fonod barra de navegacion*/
+  --accent:#f75d5d; /*clor animacion*/
+  --muted:#e6e6e6; /*color suave para bordes*/
+  --card-bg:#fff; /*fondo tarjetas proyectos*/
+  --text:#111; /*color texto principal*/
 }
-*,
-*::before,*::after{box-sizing:border-box}
+*, 
+*::before,*::after{box-sizing:border-box} /* Se trata de un reset recomendado para que el padding y border se 
+                                          incluyan en el ancho y alto total de los elementos before y after
+                                          Esto hace que width y height incluyan padding*/
 html,body{height:100%;
-  margin:0;
+  margin:0; /*elimina margen por defecto del body*/
   font-family:Poppins, Arial;
-  background:var(--bg);color:var(--text);;
+  background:var(--bg);color:var(--text); /*aplico variables de color de texto y fondo*/
 }
 h1{
-  font-weight:200;
+  font-weight:200; 
 }
 h3{
-  line-height:1.6;
+  line-height:1.6; /* espacio entre lineas */
   font-family: Poppins, sans-serif;
   font-weight:200;
-  font-size: relative(16px);
-  font-style: italic;
+  font-size: relative(16px); /* tamaño relativo al tamaño base del texto */
+  font-style: italic; /* hace el texto en cursiva */
 }
 /* NAVBAR */
 #navbar { /*header que contiene un nav, actua como barra de navegación*/
@@ -34,40 +36,41 @@ h3{
    z-index: 9999; /* para asegurarse de que la barra de navegación esté por encima de otros elementos */
 }
 #navbar nav{
-  display:flex;
+  display:flex; /* uso flexbox para distribuir los enlaces de navegación */
   justify-content:right;
   gap:60px
 }
 .nav-link{
   color:#fff;
-  text-decoration:none;
+  text-decoration:none; /* quita el subrayado de los enlaces */
   font-family: Poppins, sans-serif;
-  font-size: large;
-  font-weight:200;
+  font-size: large; /* tamaño del texto */
+  font-weight:200; /* grosor del texto */
 }
-.nav-link:hover{color:#323ab3}
+.nav-link:hover{color:#323ab3} /* color al pasar el ratón por encima */
 
 /* WELCOME */
 #welcome-section{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;padding:40px;
-  background:linear-gradient(to bottom,#9acbff,#fad0c4);
-  gap:20px
+  min-height:100vh; /* altura minima de la sección igual a la altura de la ventana */
+  display:flex; 
+  flex-direction:column; /* organiza los elementos en columna */
+  justify-content:center; /* centra verticalmente */
+  align-items:center; /* centra horizontalmente */
+  text-align:center; /* centra el texto */
+  padding:40px; /* espacio interno */
+  background:linear-gradient(to bottom,#9acbff,#fad0c4); /* fondo degradado */
+  gap:20px /* espacio entre elementos */
 }
 #welcome-section h1{
-  font-size:3rem;
+  font-size:3rem; /* tamaño grande para el título */
   margin:0
 }
 #nter-img{max-height:70px}
 
 /* SECTIONS */
 section{
-  padding:50px 20px;
-  text-align:center
+  padding:50px 20px; /* espacio interno */
+  text-align:center /* centra el texto */
 }
 /* <hr> */
 #projects hr,
@@ -83,93 +86,104 @@ section hr {
 
 /* PROJECT TILES (grid-friendly, responsive) */
 #projects .project-tile{
-  display:inline-block;
-  margin:10px;
+  display:inline-block; /* para que se comporten como bloques en línea */
+  margin:10px; /* espacio entre tarjetas */
   text-align:center;
-  background:var(--card-bg);
+  background:var(--card-bg); /* fondo tarjeta con las variables definidas en root*/
   border:1px solid #141414;
-  border-radius:10px;
-  overflow:hidden;
-  width:340px;
-  vertical-align:top
+  border-radius:10px; /* bordes redondeados */
+  overflow:hidden; /* oculta cualquier contenido que sobresalga de los bordes redondeados */
+  width:340px; /* ancho fijo para las tarjetas */
+  vertical-align:top /* alinea las tarjetas en la parte superior */
 }
 .project-tile p{
-  margin:10px 0;
+  margin:10px 0; 
   font-weight:700
 }
 .project-tile img,.project-tile .preview-frame{
-  display:block;
+  display:block; /* para que ocupe todo el ancho del contenedor */
   width:100%;
   height:200px;
-  object-fit:cover
+  object-fit:cover /* asegura que la imagen cubra todo el contenedor sin distorsionarse */
 }
 
-/* preview iframe */
+/* preview iframe */ /* para mostrar una vista previa de un proyecto web */
 .project-tile .preview-frame{
   border-radius:8px;
-  overflow:hidden;
-  background:var(--card-bg);
-  border:1px solid var(--muted);
-  box-shadow:0 8px 20px rgba(0,0,0,.06)
+  overflow:hidden; /* oculta cualquier contenido que sobresalga de los bordes redondeados */
+  background:var(--card-bg); /* fondo tarjeta con las variables definidas en root*/
+  border:1px solid var(--muted); /* borde suave */
+  box-shadow:0 8px 20px rgba(0,0,0,.06) /* sombra para dar profundidad */
 }
-.project-tile .preview-frame iframe{
+.project-tile .preview-frame iframe{ /* iframe dentro del contenedor de vista previa */
   width:100%;
   height:100%;
   border:0;
-  transform:scale(.95);
-  transform-origin:top left;
-  pointer-events:none;
-  filter:saturate(.95) contrast(.98)
+  transform:scale(.95); /* escala para dar efecto de miniatura */
+  transform-origin:top left; /* punto de origen para la escala */
+  pointer-events:none; /* desactiva la interacción con el iframe para no poder interactuar desde ahi con las vistas html de los enlaces */
+  filter:saturate(.95) contrast(.98) brightness(1.03); /* ajusta colores para mejor apariencia */
 }
 
 /* Hover effects: image zoom, title lift, hover symbol */
+/*Ambas reglas (separadas por la coma) reciben los mismos estilos*/
 .project-tile img,
-.project-tile a:focus img{
-  transition:transform .3s ease,filter .3s ease
+.project-tile a:focus img{ 
+  transition:transform .3s ease,filter .3s ease /* traduciion literal:anima transform y filter durante 0.3s con función de tiempo ease" */
 }
-.project-tile:hover img{
-  transform:scale(1.04);
-  filter:brightness(.95)
+.project-tile:hover img{ /* al hacer hover en la tarjeta del proyecto */
+  transform:scale(1.04); /* escala al 104% al hacer hover */
+  filter:brightness(.95) /* reduce brillo ligeramente al hacer hover */
 }
-.project-tile p{
-  transition:transform .22s ease,color .22s ease
+.project-tile p{ /* título del proyecto */
+  transition:transform .22s ease,color .22s ease /* anima transform y color durante 0.22s con función de tiempo ease" */
 }
-.project-tile:hover p{
-  transform:translateY(-4px);
-  color:var(--accent)
+.project-tile:hover p{ /* al hacer hover en la tarjeta del proyecto */
+  transform:translateY(-4px); /* mueve el título hacia arriba al hacer hover */
+  color:var(--accent) /* cambia el color del título al color de la variable definida */
 }
 
-.project-tile a{
-  display:block;
-  color:inherit;
-  text-decoration:none;
-  position:relative;
-  overflow:hidden
+.project-tile a{ /* enlace que envuelve la imagen y el título */
+  display:block; /* para que ocupe todo el contenedor de la tarjeta */
+  color:inherit; /* hereda el color del contenedor padre */
+  text-decoration:none; /* quita el subrayado */
+  position:relative; /* para posicionar el símbolo de hover */
+  overflow:hidden /* oculta cualquier contenido que sobresalga de los bordes redondeados */
 }
-.project-tile a::after{
-  content:"➜";
-  position:absolute;
-  right:12px;
-  bottom:12px;
-  background:var(--accent);
-  color:#fff;
-  padding:8px;
-  border-radius:50%;
-  font-weight:700;
-  font-size:14px;
+.project-tile a::after{ /* pseudo-elemento para el símbolo de hover, crea un elemento virtual después del contenido de cada <a> */
+  content:"➜"; /* flecha como contenido */
+  position:absolute; /* posicionamiento absoluto respecto al enlace */
+  right:12px; /* distancia desde la derecha */
+  bottom:12px; /* distancia desde abajo */
+  background:var(--accent); /* fondo con el color de la variable definida */
+  color:#fff; /* color blanco para el símbolo */
+  padding:8px; /* espacio interno */
+  border-radius:50%; /* forma circular */
+  font-weight:700; /* grosor del símbolo */
+  font-size:14px; /* tamaño del símbolo */
   box-shadow:0 6px 12px rgba(0,0,0,.18);
   opacity:0;
-  transform:translateY(8px) scale(.9);
-  transition:opacity .22s ease,transform .22s ease;
-  pointer-events:none
+  transform:translateY(8px) scale(.9); /* inicia ligeramente desplazado y escalado */
+  transition:opacity .22s ease,transform .22s ease; /* anima opacidad y transform durante 0.22s con función de tiempo ease" */
+  pointer-events:none /* hace que los clicks pasen al enlace padre y se abra la demo en nueva pestaña en lugar de interactuar dentro del iframe */
 }
-.project-tile:hover a::after,
-.project-tile a:focus::after{
+
+/*
+Selector 1: .project-tile:hover a::after
+— apunta al ::after del <a> cuando se hace hover en la tarjeta (.project-tile). Permite que la flecha aparezca si el usuario pasa el ratón por cualquier parte de la tarjeta.
+
+Selector 2: .project-tile a:focus::after
+— apunta al ::after cuando el <a> tiene foco (teclado). Garantiza que la indicación también sea visible al navegar con teclado.
+
+Propósito: mostrar/animar el pseudo‑elemento (ej. cambiar opacity/transform) tanto con ratón como con teclado para accesibilidad.
+*/
+.project-tile:hover a::after, /* al hacer hover en la tarjeta del proyecto */
+.project-tile a:focus::after{ 
   opacity:1;
   transform:translateY(0) scale(1)
 }
 
-.projects-frontend {
+.projects-frontend { /* clase para proyectos de frontend */
   background: linear-gradient(180deg,#6bdcf8c0 0%, #378ce298 100%);
   color: #131313;
   padding: 40px 20px;
@@ -185,7 +199,7 @@ section hr {
   margin:0 auto
 }
 #email{
-  padding:10px;
+  padding:10px; 
   width:100%
 }
 #submit{
@@ -214,23 +228,23 @@ section hr {
   margin:0 0 16px;
   font-size:1.2rem
 }
-.footer-note{
+.footer-note{ 
   margin:0;
   color:#ddd;
   font-size:.9rem
 }
 
 /* contact buttons */
-.contacts{
+.contacts{ /* contenedor de los enlaces de contacto */
   display:flex;
   gap:18px;
   justify-content:center;
   align-items:center;
-  flex-wrap:wrap;
+  flex-wrap:wrap; /* permite que los elementos se ajusten a la siguiente línea si no caben */
   margin-bottom:14px
 }
 .contact-link{
-  display:inline-flex;
+  display:inline-flex; /* para que los enlaces se comporten como elementos en línea pero con capacidades de flexbox */
   gap:10px;
   align-items:center;
   padding:10px 14px;
@@ -245,19 +259,23 @@ section hr {
   width:28px;
   height:28px;
   display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  color:#ff7a59;
-  transition:transform .32s cubic-bezier(.2,.9,.3,1),color .26s ease
+  align-items:center; /* centra verticalmente */
+  justify-content:center; /* centra horizontalmente */
+  color:#ff7a59; 
 }
 .contact-link .label{font-weight:600}
 .contact-link:hover{
-  transform:translateY(-6px) scale(1.01);
-  box-shadow:0 16px 30px rgba(0,0,0,.12);
-  animation:linkGlow 1.2s ease-in-out both}
+  transform:translateY(-6px) scale(1.01); /* mueve el enlace hacia arriba y lo escala ligeramente */
+  animation:linkGlow 1.2s ease-in-out both} /* permite cambiar de color los links (incluyendo iconos y texto)*/
 .contact-link:hover .icon{transform:translateY(-2px) scale(1.12) rotate(-6deg);color:#2ad4ff}
 
-@keyframes linkGlow{0%{box-shadow:0 6px 18px rgba(255,74,42,0)}50%{box-shadow:0 20px 40px rgba(255,74,42,.08)}100%{box-shadow:0 6px 18px rgba(255,74,42,0)}}
+
+@keyframes linkGlow{ /* Animación que hace un efecto de “brillo” en la sombra durante el hover*/
+  0%{
+    box-shadow:0 6px 18px rgba(255,74,42,0)
+  }50%{box-shadow:0 20px 40px rgba(255,74,42,.08)
+  }100%{
+    box-shadow:0 6px 18px rgba(255,74,42,0)}}
 
 /* RESPONSIVE */
 @media (max-width:800px){
@@ -269,6 +287,8 @@ section hr {
   .contacts{gap:10px}
 }
 
+/*NTER IMAGE ANIMATION */
+
 /* enlace que contiene la imagen: permite transform/hover */
 #nter-link {
   display: inline-block;
@@ -277,7 +297,7 @@ section hr {
   transition: transform 300ms ease, box-shadow 300ms ease;
 }
 
-/* animación de "float" continua y suave */
+/* define una animación que mueve la imagen hacia arriba y abajo (efecto flotante). */
 @keyframes floatY {
   0%   { transform: translateY(0); }
   50%  { transform: translateY(-35px); }
@@ -296,9 +316,9 @@ section hr {
 /* efecto hover: escala suave y brillo en el contenedor/enlace */
 #nter-link:hover #nter-img,
 #nter-link:focus #nter-img {
-  transform: scale(1.06);
-  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.18));
+  transform: scale(1.06); /* escala al 106% */
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.18)); /* añade sombra para dar profundidad */
 }
 
-/* opcional: si quieres pausar la animación al hover */
+/* opcional: para pausar la animación al hover */
 #nter-link:hover #nter-img { animation-play-state: paused; }
