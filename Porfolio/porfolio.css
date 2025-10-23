@@ -1,298 +1,304 @@
-
-body {
-  /*margin: 0;*/ /*si quisiera eliminar el margen predetermiando del navegador(bordes blancos)*/
-  font-family: Arial, sans-serif; /*usa fuente Arial, si no estuviera disponible, usa la sans-serif*/
-  background-color: #f3daa4;
-  margin: 0;              /* remove default yellow/white borders */
+/* Variables y reset */
+:root{
+  --bg: linear-gradient(180deg,#f3daa4 0%, #d14e1a98 100%);;
+  --nav-bg:#333;
+  --accent:#f75d5d;
+  --muted:#e6e6e6;
+  --card-bg:#fff;
+  --text:#111;
 }
-
-
+*,
+*::before,*::after{box-sizing:border-box}
+html,body{height:100%;
+  margin:0;
+  font-family:Poppins, Arial;
+  background:var(--bg);color:var(--text);;
+}
+h1{
+  font-weight:200;
+}
+h3{
+  line-height:1.6;
+  font-family: Poppins, sans-serif;
+  font-weight:200;
+  font-size: relative(16px);
+  font-style: italic;
+}
+/* NAVBAR */
 #navbar { /*header que contiene un nav, actua como barra de navegación*/
-  position: sticky; /* con la propiedad de "sticky" consigo que la barra de navegación siempre se mantenga en el top de la página mientras la scroleo */
+  position: fixed; /* con la propiedad de "sticky" consigo que la barra de navegación siempre se mantenga en el top de la página mientras la scroleo */
   top: 0; /*para fijar este elemento en la parte superior de la pantalla*/
-  background-color: #333; /*fondo de la barra de navegación*/
+  background:linear-gradient(to right,#ff491ce0, #fca12a); /*fondo de la barra de navegación*/
   padding: 10px 20px; /*Añado un poco de espacio para que no se vea muy estrecho*/
-  
-}
-
-#navbar nav {  /*función nav del header, con esto organizo los a con Flexbox */
-  display: flex;
-  justify-content: center;
-  gap: 20px; /*para separar/espaciar un poco los <a> elementos*/
-}
-
-.nav-link {
-  color: white; /*texto de los elementos de la barra de navegacion = blanco*/
-  text-decoration: none;/*esto sirve para quitar los subrayados de los enlaces*/
-  font-weight: bold; /*esto sirve para que los enlaces salgan en negrita*/
-}
-
-.nav-link:hover {
-  color: #ff9900; /*una vez posicionemos el raton sobre los enlaces, se pone de color :naranja*/
-}
-
-
-#welcome-section {
-  height: 100vh; /* igual a la altura de la ventana porque vh significa viewport*/
-  display: flex; /*Para centrar el contenido*/
-  flex-direction: column; /* coloca los hijos uno debajo del otro */
-  justify-content: center; /*alinea los hijos(h1 y p) (del contenedor de manera horizontal)*/
-  align-items: center; /*alinea elementos de manera vertical en el centro del contenedor*/
-  background-color: #bdb8a7b9; /*color de fondo del contenedor*/
-  text-align: center; /*centra el texto dentro del contenedor*/
-
-   /* degradado de arriba a abajo */
-  background: linear-gradient(to bottom, #9acbff, #fad0c4); /*para practicar con los degradados como en la formacion*/
-  gap: 20px;
-}
-
-#welcome-section h1 {
-  font-size: 3rem; 
-  /*rem = relativo a la raiz, esta medida quiere decir que, basandonos en la fuente del elemento raiz (tamaño de fuente html por defecto del navegador, suele ser 16px), conseguimos que el elemento con esa unidad de medida aumente proporcionalmente, ajustandose mejor el contenido y siendo esta opcion mas flexible y apropiada que utilizar un cambio absoluto como seria usar pixeles. Con esto, si el user hace zoom, o cambia de navegador, aumentara el tamaño de estos elemento de manera proporcional */
-}
-#nter-img {
-  max-height: 70px;/*la imagen del logo no superará los Xpx de alto*/
-}
-
-
-#projects {
-  padding: 50px 20px; /*sirve para separar entre sí los elementos de esta sección*/
-  text-align: center; /*centra los elementos de esta sección*/
-}
-
-.project-tile {
-  display: inline-block; /*esto sirve para que los elementos, en este caso "proyectos", se coloquen uno al lado del otro, se comportan omo si fueran bloques, botones*/
-  margin: 10px; /*deja 10px de espacio entre los proyectos*/
-  text-align: center;
-  background-color: white;
-  border: 1px solid #141414; /*para añadirle bordes grises a los elementos*/
-  border-radius: 10px; /*Para ahcer las equinas redondeadas*/
-  overflow: hidden; /*si algún elemento que incluyamos es muy grande, se esconde lo que sobresalga de ese contenedor*/
-}
-
-.project-tile img {
-  width: 300px; 
-  height: 200px;
-  display: block; /*para que la imagen ocupe todo el ancho disponible dentro del contenedor*/
-}
-
-.project-tile p {
-  margin: 10px 0;
-  font-weight: bold;
-}
-
-
-
-/* MEDIA QUERY para pantallas pequeñas */
-@media (max-width: 600px) {
-  #navbar nav {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .project-tile img {
-    width: 90%;
-    height: auto;
-  }
-}
-
-
-
-#form {
-  display: flex;
-  flex-direction: column; /*coloca los elementos uno debajo del otro*/
-  align-items: center;
-  gap: 10px;
-  max-width: 400px;
-  margin: 0 auto; /*centra el formulario en la pagina*/
-}
-
-#email {
-  padding: 10px;
   width: 100%;
+   z-index: 9999; /* para asegurarse de que la barra de navegación esté por encima de otros elementos */
+}
+#navbar nav{
+  display:flex;
+  justify-content:right;
+  gap:60px
+}
+.nav-link{
+  color:#fff;
+  text-decoration:none;
+  font-family: Poppins, sans-serif;
+  font-size: large;
+  font-weight:200;
+}
+.nav-link:hover{color:#323ab3}
+
+/* WELCOME */
+#welcome-section{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;padding:40px;
+  background:linear-gradient(to bottom,#9acbff,#fad0c4);
+  gap:20px
+}
+#welcome-section h1{
+  font-size:3rem;
+  margin:0
+}
+#nter-img{max-height:70px}
+
+/* SECTIONS */
+section{
+  padding:50px 20px;
+  text-align:center
+}
+/* <hr> */
+#projects hr,
+section hr {
+  border: 0;                     /* quita borde por defecto */
+  height: 2px;                   /* grosor de la línea */
+   background-color: #111 !important; /* fuerza color oscuro */
+
+  margin: 12px auto;             /* separación arriba/abajo y centrado */
+  width: 60%;                    /* ancho visual de la línea */
 }
 
-#submit {
-  padding: 10px 20px; /*para hacer mas grande el boton*/
-  background-color: #333;
-  color: white;
-  font-weight: bold;
-  cursor: pointer; /*para que el raotn camvbie de forma cuandos e pase por encima del boton*/
-  border-radius: 5px;
+
+/* PROJECT TILES (grid-friendly, responsive) */
+#projects .project-tile{
+  display:inline-block;
+  margin:10px;
+  text-align:center;
+  background:var(--card-bg);
+  border:1px solid #141414;
+  border-radius:10px;
+  overflow:hidden;
+  width:340px;
+  vertical-align:top
+}
+.project-tile p{
+  margin:10px 0;
+  font-weight:700
+}
+.project-tile img,.project-tile .preview-frame{
+  display:block;
+  width:100%;
+  height:200px;
+  object-fit:cover
 }
 
-#submit:hover {
-  background-color: rgba(0, 145, 255, 0.729);
+/* preview iframe */
+.project-tile .preview-frame{
+  border-radius:8px;
+  overflow:hidden;
+  background:var(--card-bg);
+  border:1px solid var(--muted);
+  box-shadow:0 8px 20px rgba(0,0,0,.06)
 }
-section {
-  padding: 50px 20px;
-  text-align: center;
-}
-
-
-/* Make the whole tile linkable and position the hover symbol */
-.project-tile a {
-  display: block;
-  color: inherit;
-  text-decoration: none;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Smooth image transition */
-.project-tile img {
-  width: 300px;
-  height: 200px;
-  display: block;
-  transition: transform 300ms ease, filter 300ms ease;
+.project-tile .preview-frame iframe{
+  width:100%;
+  height:100%;
+  border:0;
+  transform:scale(.95);
+  transform-origin:top left;
+  pointer-events:none;
+  filter:saturate(.95) contrast(.98)
 }
 
-/* Slight zoom and dim on hover */
-.project-tile:hover img,
-.project-tile a:focus img {
-  transform: scale(1.04);
-  filter: brightness(0.95);
+/* Hover effects: image zoom, title lift, hover symbol */
+.project-tile img,
+.project-tile a:focus img{
+  transition:transform .3s ease,filter .3s ease
+}
+.project-tile:hover img{
+  transform:scale(1.04);
+  filter:brightness(.95)
+}
+.project-tile p{
+  transition:transform .22s ease,color .22s ease
+}
+.project-tile:hover p{
+  transform:translateY(-4px);
+  color:var(--accent)
 }
 
-/* Animated circular symbol that appears on hover (bottom-right) */
-.project-tile a::after {
-  content: "➜";
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  background: #f75d5d;
-  color: #fff;
-  padding: 8px;
-  border-radius: 50%;
-  font-weight: 700;
-  font-size: 14px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.18);
-  opacity: 0;
-  transform: translateY(8px) scale(0.9);
-  transition: opacity 220ms ease, transform 220ms ease;
-  pointer-events: none;
+.project-tile a{
+  display:block;
+  color:inherit;
+  text-decoration:none;
+  position:relative;
+  overflow:hidden
 }
-
-/* Show symbol on hover / focus for accessibility */
+.project-tile a::after{
+  content:"➜";
+  position:absolute;
+  right:12px;
+  bottom:12px;
+  background:var(--accent);
+  color:#fff;
+  padding:8px;
+  border-radius:50%;
+  font-weight:700;
+  font-size:14px;
+  box-shadow:0 6px 12px rgba(0,0,0,.18);
+  opacity:0;
+  transform:translateY(8px) scale(.9);
+  transition:opacity .22s ease,transform .22s ease;
+  pointer-events:none
+}
 .project-tile:hover a::after,
-.project-tile a:focus::after,
-.project-tile a:focus-visible::after {
-  opacity: 1;
-  transform: translateY(0) scale(1);
+.project-tile a:focus::after{
+  opacity:1;
+  transform:translateY(0) scale(1)
 }
 
-/* Subtle title lift and color change */
-.project-tile p {
-  margin: 10px 0;
-  font-weight: bold;
-  transition: transform 220ms ease, color 220ms ease;
+.projects-frontend {
+  background: linear-gradient(180deg,#6bdcf8c0 0%, #378ce298 100%);
+  color: #131313;
+  padding: 40px 20px;
 }
 
-.project-tile:hover p,
-.project-tile a:focus p {
-  transform: translateY(-4px);
-  color: #f75d5d;
+/* FORM */
+#form{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  max-width:400px;
+  margin:0 auto
+}
+#email{
+  padding:10px;
+  width:100%
+}
+#submit{
+  padding:10px 20px;
+  background:#333;
+  color:#fff;
+  font-weight:700;
+  border-radius:5px;
+  border:0;
+  cursor:pointer}
+
+#submit:hover{
+  background:rgba(0,145,255,.73)
 }
 
-
-/* Footer contact block */
-#footer-contact {
-  width: 100%;
-  margin: 0;
-  padding: 30px 20px;
-  border-radius: 0;      /* remove rounded corners so it fills edges cleanly */
-  box-sizing: border-box;
-  background: #333;
+/* FOOTER CONTACT */
+#footer-contact{
+  width:100%;
+  margin:0;
+  padding:30px 20px;
+  background:var(--nav-bg);
+  color:#fff;
+  box-sizing:border-box
+}
+#footer-contact h3{
+  margin:0 0 16px;
+  font-size:1.2rem
+}
+.footer-note{
+  margin:0;
+  color:#ddd;
+  font-size:.9rem
 }
 
-#footer-contact h3 {
-  margin: 0 0 16px;
-  font-size: 1.4rem;
-  color: #ffffff; /* título en blanco */
+/* contact buttons */
+.contacts{
+  display:flex;
+  gap:18px;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-bottom:14px
+}
+.contact-link{
+  display:inline-flex;
+  gap:10px;
+  align-items:center;
+  padding:10px 14px;
+  border-radius:10px;
+  background:#fff;
+  color:var(--text);
+  text-decoration:none;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+  transition:transform .26s ease,box-shadow .26s ease
+}
+.contact-link .icon{
+  width:28px;
+  height:28px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:#ff7a59;
+  transition:transform .32s cubic-bezier(.2,.9,.3,1),color .26s ease
+}
+.contact-link .label{font-weight:600}
+.contact-link:hover{
+  transform:translateY(-6px) scale(1.01);
+  box-shadow:0 16px 30px rgba(0,0,0,.12);
+  animation:linkGlow 1.2s ease-in-out both}
+.contact-link:hover .icon{transform:translateY(-2px) scale(1.12) rotate(-6deg);color:#2ad4ff}
+
+@keyframes linkGlow{0%{box-shadow:0 6px 18px rgba(255,74,42,0)}50%{box-shadow:0 20px 40px rgba(255,74,42,.08)}100%{box-shadow:0 6px 18px rgba(255,74,42,0)}}
+
+/* RESPONSIVE */
+@media (max-width:800px){
+  #projects .project-tile{width:48%;box-sizing:border-box}
+}
+@media (max-width:560px){
+  #navbar nav{flex-direction:column;gap:10px}
+  .project-tile,.project-tile .preview-frame,.project-tile img{width:90%;height:auto}
+  .contacts{gap:10px}
 }
 
-#footer-contact p {
-  color: #ffffff; /* párrafo/copyright en blanco */
+/* enlace que contiene la imagen: permite transform/hover */
+#nter-link {
+  display: inline-block;
+  border-radius: 8px;
+  overflow: visible;
+  transition: transform 300ms ease, box-shadow 300ms ease;
 }
 
-/* Contacts row */
-.contacts {
-  display: flex;
-  gap: 18px;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 14px;
+/* animación de "float" continua y suave */
+@keyframes floatY {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-35px); }
+  100% { transform: translateY(0); }
 }
 
-/* Link base */
-.contact-link {
-  display: inline-flex;
-  gap: 10px;
-  align-items: center;
-  padding: 10px 14px;
-  border-radius: 10px;
-  color: #111;
-  background: #fff;
-  text-decoration: none;
-  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.06);
-  transform: translateY(0);
-  transition: transform 260ms ease, box-shadow 260ms ease, background-color 260ms ease;
-  will-change: transform;
+/* aplicar animación a la imagen */
+#nter-img {
+  margin-top: 30px;
+  display: block;
+  max-height: 70px;
+  transition: transform 300ms ease, filter 300ms ease;
+  animation: floatY 4s ease-in-out infinite;
 }
 
-/* Icon style */
-.contact-link .icon {
-  display: inline-flex;
-  width: 28px;
-  height: 28px;
-  align-items: center;
-  justify-content: center;
-  color: #ff7a59; /* accent color */
-  transition: transform 320ms cubic-bezier(.2,.9,.3,1), color 260ms ease;
+/* efecto hover: escala suave y brillo en el contenedor/enlace */
+#nter-link:hover #nter-img,
+#nter-link:focus #nter-img {
+  transform: scale(1.06);
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.18));
 }
 
-/* Label */
-.contact-link .label {
-  font-weight: 600;
-}
-
-/* Hover/focus effects: gentle lift + icon pop + glow */
-.contact-link:hover,
-.contact-link:focus,
-.contact-link:focus-visible {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 16px 30px rgba(0,0,0,0.12);
-  outline: none;
-}
-
-.contact-link:hover .icon,
-.contact-link:focus .icon {
-  transform: translateY(-2px) scale(1.12) rotate(-6deg);
-  color: #ff4a2a;
-}
-
-/* Subtle glowing pulse on hover for the whole link */
-@keyframes linkGlow {
-  0% { box-shadow: 0 6px 18px rgba(255,74,42,0); }
-  50% { box-shadow: 0 20px 40px rgba(255,74,42,0.08); }
-  100% { box-shadow: 0 6px 18px rgba(255,74,42,0); }
-}
-
-.contact-link:hover {
-  animation: linkGlow 1.2s ease-in-out both;
-}
-
-/* Responsive spacing */
-@media (max-width: 560px) {
-  .contacts { gap: 10px; }
-  .contact-link { padding: 8px 10px; }
-  .contact-link .label { font-size: 0.95rem; }
-}
-
-/* Footer note */
-.footer-note {
-  margin: 0;
-  color: #333;
-  font-size: 0.9rem;
-}
+/* opcional: si quieres pausar la animación al hover */
+#nter-link:hover #nter-img { animation-play-state: paused; }

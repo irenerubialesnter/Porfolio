@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>My Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="porfolio.css">
 </head>
 <body>
@@ -11,7 +12,7 @@
     <nav>
       <a href="#welcome-section" class="nav-link">Home</a>
       <a href="#projects" class="nav-link">Projects</a>
-      <a href="#contact" class="nav-link">Contact</a>
+      <a href="#footer-contact" class="nav-link">Contact</a>
     </nav>
   </header>
 
@@ -19,7 +20,9 @@
   <section id="welcome-section">
     <h1>Welcome to my Portfolio!</h1>
     <h3>A Full Stack Developer</h3>
+    <a id="nter-link" href="https://nter.es/" target="_blank" rel="noopener">
     <img id="nter-img"src="https://n.world/media/logo-nter-white.png" alt="nter-img">
+    </a>
   </section>
 
  
@@ -68,27 +71,50 @@
 
 
 
-<section id="projects">
+<section id="projects"class="projects-frontend">
     <h2>My FrontEnd Projects</h2>
     <hr></hr>
-    <div class="project-tile">
-      <a href="https://gitlab.nfqsolutions.es/nworld/nter/engineering/develop-team/irene-rubiales/block5" target="_blank">
-        <img src="https://mercadoonlinedigital.com/wp-content/uploads/2023/08/crud.png" alt="Final Project">
-        <p>Survey Form Example</p>
-      </a>
+ <div class="project-tile">
+  <a class="project-link" href="https://irenerubialesnter.github.io/Porfolio/Formulario/formulario.html" target="_blank" rel="noopener">
+    <div class="preview-frame" aria-hidden="true">
+      <iframe
+        src="https://irenerubialesnter.github.io/Porfolio/Formulario/formulario.html"
+        loading="lazy"
+        sandbox="allow-scripts allow-forms allow-popups"
+        referrerpolicy="no-referrer">
+      </iframe>
     </div>
-    <div class="project-tile">
-      <a href="https://gitlab.nfqsolutions.es/nworld/nter/engineering/develop-team/irene-rubiales/block6" target="_blank">
-        <img src="https://cdn.prod.website-files.com/5ff66329429d880392f6cba2/643fd31106b41aa4905b217e_6178d88bb212f6aa8237ac3a_API%20Gateway%20Preview-p-500.png" alt="Proyecto 2">
-        <p>Tribute Page Example</p>
-      </a>
+    <p>Survey Form Example</p>
+  </a>
+</div>
+
+<div class="project-tile">
+  <a class="project-link" href="https://irenerubialesnter.github.io/Porfolio/Reconocimiento/rec.html" target="_blank" rel="noopener">
+    <div class="preview-frame" aria-hidden="true">
+      <iframe
+        src="https://irenerubialesnter.github.io/Porfolio/Reconocimiento/rec.html"
+        loading="lazy"
+        sandbox="allow-scripts allow-forms allow-popups"
+        referrerpolicy="no-referrer">
+      </iframe>
     </div>
-       <div class="project-tile">
-      <a href="https://gitlab.nfqsolutions.es/nworld/nter/engineering/develop-team/irene-rubiales/block9" target="_blank">
-        <img src="https://media.gcflearnfree.org/content/557853bd317faa316096bef8_06_10_2015/intro_imagev2.png" alt="Final Project">
-        <p>Product Landing Page Example</p>
-      </a>
+    <p>Tribute Page Example</p>
+  </a>
+</div>
+
+<div class="project-tile">
+  <a class="project-link" href="https://irenerubialesnter.github.io/Porfolio/Producto/producto.html" target="_blank" rel="noopener">
+    <div class="preview-frame" aria-hidden="true">
+      <iframe
+        src="https://irenerubialesnter.github.io/Porfolio/Producto/producto.html"
+        loading="lazy"
+        sandbox="allow-scripts allow-forms allow-popups"
+        referrerpolicy="no-referrer">
+      </iframe>
     </div>
+    <p>Product Landing Page Example</p>
+  </a>
+</div>
 
     
   
@@ -98,7 +124,7 @@
 
    <footer>
     <section id="footer-contact">
-      <h3>Trabajemos juntos...</h3>
+      <h3>Let's Work Together...</h3>
 
       <div class="contacts">
         <a class="contact-link" href="https://www.facebook.com/" target="_blank" rel="noopener">
